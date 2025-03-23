@@ -27,6 +27,7 @@ class UserHome:
                 Events.name,
                 Events.date,
                 Events.location,
+                Events.first_image_link,
                 Users.username.label("creator_username"),
                 UserEvent.status.label("user_status")
             )
@@ -35,10 +36,12 @@ class UserHome:
             .filter(UserEvent.user_id == user.id)
             .all()
         )
+        db_session.close()
+
         st.header("""🎉 chEvent :""")
         st.markdown(f"#### Bienvenue {username} !")
         st.divider()
-        st.write("A l'occasion de son 26ème anniversaire, le génial Jules Chevenet t'invites à différent évènements :")
+        st.write("A l'occasion de son 26ème anniversaire, le génial **Jules Chevenet** t'invites à différent évènements :")
 
         for event in user_events:
             if spawn_print_event(event, key=str(event.id)):

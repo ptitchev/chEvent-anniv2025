@@ -27,7 +27,7 @@ def global_show(show_int):
             border-radius:1rem;
             padding:1rem;
             width: 100%;
-            max-width: 510px;
+            max-width: 600px;
             margin: 0 auto;
             box-sizing: border-box;
             overflow: hidden;
@@ -41,7 +41,7 @@ def global_show(show_int):
 
         .block-container {
                 width: 100%;
-                max-width: 510px;
+                max-width: 600px;
                 margin: auto;
                 align-items: center;
             }

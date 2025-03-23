@@ -15,6 +15,7 @@ def spawn_print_event(event,key = None):
     eventDate = event.date.strftime("%d %B %Y")
     eventCreator = event.creator_username
     eventUserStatus = event.user_status
+    eventFirstImage = event.first_image_link
 
     component_value = _component_func(
         eventName=eventName, 
@@ -22,6 +23,7 @@ def spawn_print_event(event,key = None):
         eventDate=eventDate,
         eventCreator=eventCreator,
         eventUserStatus=eventUserStatus,
+        eventFirstImage=eventFirstImage,
         key=key
         )
     

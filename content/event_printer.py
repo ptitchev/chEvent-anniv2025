@@ -119,6 +119,7 @@ class EventPrinter:
                 .filter(UserEvent.event_id == event_id)
                 .all()
                 )
+                db_session.close()
 
                 status_filter = st.segmented_control("Filtre", possible_status, selection_mode='multi')
                 if len(status_filter) > 0:

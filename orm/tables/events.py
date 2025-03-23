@@ -8,3 +8,4 @@ class Events(Base):
     date = Column(Date)
     location = Column(String)
     create_user_id = Column(Integer, ForeignKey('users.id'))
+    first_image_link = Column(String)
