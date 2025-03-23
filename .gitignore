@@ -1,0 +1,5 @@
+**/db_tool/all_migration.py
+*.__pycache__
+spawn_data/
+reset_db.py
+.streamlit/secrets.toml
