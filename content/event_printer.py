@@ -42,22 +42,20 @@ class EventPrinter:
             .first()
         )
 
-        if status_from_form is None:
-            status_from_form = user_event_show.user_status
 
         st.header(user_event_show.name)
         st.divider()
         st.write(f'📍 {user_event_show.location}')
         st.write(f'📅 {user_event_show.date.strftime("%d %B %Y")}')
         st.write(f'👤 {user_event_show.creator_username}')
-        st.markdown(f"""<strong style="color: {'#4CAF50' if status_from_form == 'Accepté' else '#F44336' if status_from_form == 'Refusé' else '#FF9800' if status_from_form == "Attente de réponse" else '#000000'}">
-                            {status_from_form}
+        st.markdown(f"""<strong style="color: {'#4CAF50' if user_event_show.user_status == 'Accepté' else '#F44336' if user_event_show.user_status == 'Refusé' else '#FF9800' if user_event_show.user_status == "Attente de réponse" else '#000000'}">
+                            {user_event_show.user_status}
                         </strong>""", unsafe_allow_html=True )
         st.divider()
         invit, event = st.tabs(["Mon invitation", "Événement"])
 
         possible_status = ["Accepté", "Attente de réponse", "Refusé"]
-        user_status_index = possible_status.index(status_from_form)
+        user_status_index = possible_status.index(user_event_show.user_status)
         with invit:
             with st.form('invit_event', border=False):
                 user_event_status_change = st.selectbox(
