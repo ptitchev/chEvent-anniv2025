@@ -1,5 +1,3 @@
-#from sqlalchemy.orm import relationship
-
 import streamlit as st
 
 from component import spawn_print_event
