@@ -184,10 +184,6 @@ class EventPrinter:
             .stFormSubmitButton>button:hover{
                 color: grey;
 
-            .block-container {
-                max-width: 500px;
-                margin: auto;
-            }
             }
             """,
             unsafe_allow_html=True,

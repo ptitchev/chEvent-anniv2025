@@ -40,7 +40,8 @@ def global_show(show_int):
         }
 
         .block-container {
-                width: 510px;
+                width: 100%;
+                max-width: 510px;
                 margin: auto;
                 align-items: center;
             }

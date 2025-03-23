@@ -124,10 +124,6 @@ class Connect:
                 display: block;
             }
 
-            .block-container {
-                max-width: 500px;
-                margin: auto;
-            }
             </style>
             """,
             unsafe_allow_html=True,
