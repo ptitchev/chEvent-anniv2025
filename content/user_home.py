@@ -12,7 +12,7 @@ class UserHome:
         self.is_shown = False
 
     def show(self):
-        st.set_page_config(page_title="chEvent : Mes événements", page_icon="🎉")
+        st.set_page_config(page_title="chEvent : Mes événements", page_icon="🎉", layout = "wide")
         global_show(self.show_int)
 
     def show_int(self):

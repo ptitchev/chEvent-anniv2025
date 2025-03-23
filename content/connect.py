@@ -69,7 +69,7 @@ class Connect:
             st.success("Inscription réussie! Connecte-toi maintenant.")
             
     def show(self):
-        st.set_page_config(page_title="chEvent : Connexion | Inscription", page_icon="🔒")
+        st.set_page_config(page_title="chEvent : Connexion | Inscription", page_icon="🔒", layout = "wide")
         global_show(self.show_int)
 
     def show_int(self):
