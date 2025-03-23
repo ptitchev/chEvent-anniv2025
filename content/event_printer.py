@@ -4,7 +4,7 @@ from PIL import Image
 from io import BytesIO
 
 from orm import connect_orm, Events, Users, UserEvent
-from session_state import session_user, user_event, user_event_status
+from session_state import session_user, user_event
 
 from content.global_show import global_show
 
@@ -42,7 +42,6 @@ class EventPrinter:
             .first()
         )
 
-        status_from_form = user_event_status.get_session_state()
         if status_from_form is None:
             status_from_form = user_event_show.user_status
 
@@ -72,9 +71,6 @@ class EventPrinter:
                     max_chars=255,
                 )
                 validate_modification = st.form_submit_button("Valider")
-
-                if user_event_status_change:
-                    user_event_status.update_session_state(user_event_status_change)
 
                 if validate_modification:
                     user_event_update = (
@@ -121,7 +117,7 @@ class EventPrinter:
                 )
                 db_session.close()
 
-                status_filter = st.segmented_control("Filtre", possible_status, selection_mode='multi')
+                status_filter = st.segmented_control("Filtre", possible_status, selection_mode='multi', key="filtre")
                 if len(status_filter) > 0:
                     filtered_users = [
                         user
@@ -184,6 +180,12 @@ class EventPrinter:
 
             .stFormSubmitButton>button:hover{
                 color: grey;
+
+            .st-key-filtre {
+                width: 100%;
+                display: flex;
+                justify-content: space-around;
+            }
 
             }
             """,
