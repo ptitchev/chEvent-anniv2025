@@ -1,6 +1,9 @@
 import streamlit as st
 import streamlit.components.v1 as components
 
+import locale
+locale.setlocale(locale.LC_TIME, 'fr_FR.UTF-8')
+
 _component_func = components.declare_component(
         "print_eventt",
         path="component/build-print-event",
