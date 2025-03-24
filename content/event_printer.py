@@ -54,14 +54,25 @@ class EventPrinter:
         st.divider()
         invit, event = st.tabs(["Mon invitation", "Événement"])
 
-        possible_status = ["Accepté", "Attente de réponse", "Refusé"]
+        status_colors = {
+            "Accepté": "#4CAF50",
+            "Attente de réponse": "#FF9800",
+            "Refusé": "#F44336",
+        }
+        
+        possible_status = list(status_colors.keys())
+        styled_options = [
+            f"<span style='color: {status_colors[status]}; font-weight: bold;'>{status}</span>"
+            for status in possible_status
+        ]
         user_status_index = possible_status.index(user_event_show.user_status)
         with invit:
             with st.form('invit_event', border=False):
-                user_event_status_change = st.selectbox(
+                user_event_status_change = st.radio(
                     label="Ton choix",
-                    options = possible_status,
-                    index = user_status_index,
+                    options=possible_status,
+                    index=user_status_index,
+                    horizontal=True
                 )
                 invit_message = st.text_area(
                     label="Ptit message pour Jules",
@@ -162,8 +173,7 @@ class EventPrinter:
                     response = requests.get(url = archive['logo'])
                     image = Image.open(BytesIO(response.content))
                     st.image(image, caption=archive["date"])
-                    st.link_button('Accéder', archive['link'], use_container_width=True)
-                    
+                    st.link_button('Accéder', archive['link'], use_container_width=True)      
         st.markdown(
             """
             <style>
@@ -184,6 +194,7 @@ class EventPrinter:
                 display: flex;
                 justify-content: space-around;
             }
+            
 
             }
             """,
