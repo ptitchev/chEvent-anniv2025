@@ -1,1 +1,0 @@
-from component.event_print import spawn_print_event

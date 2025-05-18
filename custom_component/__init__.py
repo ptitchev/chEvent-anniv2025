@@ -1,0 +1,2 @@
+from custom_component.event_printer.component import spawn_print_event
+from custom_component.status_displayer.component import spawn_status_displayer

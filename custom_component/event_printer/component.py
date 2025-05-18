@@ -5,8 +5,8 @@ import locale
 locale.setlocale(locale.LC_TIME, 'fr_FR.UTF-8')
 
 _component_func = components.declare_component(
-        "print_eventt",
-        path="component/build-print-event",
+        "print_event",
+        path="custom_component/event_printer/build",
     )
 
 def spawn_print_event(event,key = None):
@@ -28,4 +28,3 @@ def spawn_print_event(event,key = None):
         )
     
     return component_value
-    

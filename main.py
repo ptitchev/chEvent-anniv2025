@@ -1,13 +1,16 @@
-from session_state import SessionStateManager
-from router import RouterManager
+from database.create import create_tables
+from database.init import init_db
+from topics.runner import init_state, run_page, add_common_style, st_db_health
 
-import streamlit as st
+reset = False
+update = False
 
-session_state_manager = SessionStateManager()
-router_manager = RouterManager()
+if reset:
+    init_db()
+elif update:
+    create_tables()
 
-if __name__ == "__main__":
-
-    session_state_manager.manage_session_state()
-    router_manager.get_content()
-
+if st_db_health():
+    init_state()
+    run_page()
+    add_common_style()
