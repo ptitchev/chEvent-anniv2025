@@ -57,6 +57,7 @@ def get_conversation(session, event_id):
             User.username.label("sender_username"),
             Message.timestamp,
         )
+        .join(User, User.id == Message.sender_id)
         .filter(Message.event_id == event_id)
         .order_by(Message.timestamp.asc())
         .limit(250)
