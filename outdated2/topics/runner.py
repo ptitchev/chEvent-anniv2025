@@ -86,6 +86,15 @@ def add_common_style():
             display: block;
         }
 
+        .stForm > div > button {
+            border-radius: 10px;
+            padding: 8px 20px;
+            transition: 0.3s;
+            width: 200px;
+            margin: auto;
+            display: block;
+        }
+
         div[data-testid="stTabs"] button {
             width: 100%;
             justify-content: center;
