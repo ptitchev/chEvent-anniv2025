@@ -1,6 +1,7 @@
 import time
 import streamlit as st
 import datetime
+from zoneinfo import ZoneInfo
 
 event_paris = {
     "name": "Soirée Parisienne",
@@ -48,8 +49,9 @@ with st.container(key="int"):
         st.write(event_paris["description"])
         st.write("")
         st.write("⏳ **Compte à rebours**")
-        event_date = datetime.datetime(2025, 6, 6, 19, 0)
-        now = datetime.datetime.now()
+        paris_tz = ZoneInfo("Europe/Paris")
+        event_date = datetime.datetime(2025, 6, 6, 19, 0, tzinfo=paris_tz)
+        now = datetime.datetime.now(tz=paris_tz)
         countdown = event_date - now
         days = countdown.days
         hours, remainder = divmod(countdown.seconds, 3600)
